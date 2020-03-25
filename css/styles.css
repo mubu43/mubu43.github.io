@@ -116,3 +116,7 @@ a :hover, :active, :visited{
 	bottom: 0;
 	margin: auto;
 }
+
+nav{
+	min-height:90px;
+}
