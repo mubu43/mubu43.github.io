@@ -1,0 +1,118 @@
+#main-content {
+	display: none;
+}
+
+@font-face {
+  font-family: Delius;
+  src: url(../fonts/Delius-Regular.ttf);
+}
+
+@font-face {
+  font-family: DeliusSwashCaps;
+  src: url(../fonts/DeliusSwashCaps-Regular.ttf);
+}
+
+@font-face {
+  font-family: MeriendaOne;
+  src: url(../fonts/MeriendaOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: Sofia;
+  src: url(../fonts/Sofia-Regular.ttf);
+}
+
+* { box-sizing: border-box; }
+
+
+body{
+	font-family: Delius;
+}
+
+.brand-logo {
+	font-family: Sofia;
+}
+
+.sidebarName {
+	font-family: Sofia;
+	font-size: 22px;
+}
+
+.subheader {
+	font-family: DeliusSwashCaps;
+}
+
+a :hover, :active, :visited{
+	text-decoration: none;
+}
+
+.heading{
+	font-family: MeriendaOne;
+	text-decoration: underline;
+}
+
+.parallax-container{
+	max-height: 350px;
+}
+
+.companyTitle{
+	font-weight: 700;
+	font-family: DeliusSwashCaps;
+}
+
+.jobProfile{
+	font-weight: 700;
+}
+
+.jobDescription{
+	font-weight: 350;
+}
+
+.duration{
+	font-weight: 500;
+}
+
+.row, p {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.card{
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+.skillIcon{
+	max-height: 50px;
+	max-width: 50px;
+}
+
+.companyLogoImage{
+	max-height: 100px;
+	max-width: 100px;
+}
+
+.carousel{
+	min-height:325px !important;
+	border-radius: 7px;
+}
+
+.carousel-item{
+	min-height:150px !important;
+}
+
+#indication{
+	font-family: Delius;
+	font-weight:100;
+	text-decoration: none !important;
+	color: #006699;
+}
+
+#loaderId{
+	position: absolute;
+	top :0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
