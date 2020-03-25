@@ -93,7 +93,7 @@ a :hover, :active, :visited{
 }
 
 .carousel{
-	min-height:325px !important;
+	min-height:300px !important;
 	border-radius: 7px;
 }
 
