@@ -1,245 +1,748 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<!--Import Google Icon Font-->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<!--font awesome-->
-		<script src="https://kit.fontawesome.com/df9669c0a4.js" crossorigin="anonymous"></script>
-		<!--Import materialize.css-->
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-		<link href="css/styles.css" rel="stylesheet">
-		<link rel="shortcut icon" type="image/png" href="./images/link.png"/>
-		<!--Let browser know website is optimized for mobile-->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Mubu</title>
-	</head>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mubashir Hasan | Software Engineer</title>
+    <meta name="description" content="Senior Software Engineer specializing in C/C++, Telecom, 5G RAN, and DPDK. Based in Bangalore/Mumbai, India.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Animated background gradient */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #0ea5e9, #8b5cf6, #06b6d4, #3b82f6);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Card hover effect */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Skill badge animation */
+        .skill-badge {
+            transition: all 0.2s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Timeline connector */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 28px;
+            bottom: -28px;
+            width: 2px;
+            background: linear-gradient(to bottom, #0ea5e9, #8b5cf6);
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-xl font-bold gradient-text">MH</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors">About</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors">Experience</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors">Skills</a>
+                    <a href="#education" class="text-sm font-medium text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors">Education</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400 transition-colors">Contact</a>
+                    
+                    <!-- Dark mode toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden space-x-2">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#about" class="block text-sm font-medium text-slate-600 dark:text-slate-400">About</a>
+                <a href="#experience" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Experience</a>
+                <a href="#skills" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Skills</a>
+                <a href="#education" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Education</a>
+                <a href="#contact" class="block text-sm font-medium text-slate-600 dark:text-slate-400">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-	<body>
-		<div id="main-content">
-			<header>
-				 <nav>
-					<div class="nav-wrapper teal accent-3">
-					  <h4 href="#" class="brand-logo center grey-text text-darken-3">Mubashir Hasan</h4>
-					  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-					  <ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a href="https://github.com/mubu43" class="teal-text text-darken-4">Github</a></li>
-						<li><a href="https://www.linkedin.com/in/mobashir-hasan-syed-9046ba129/" class="teal-text text-darken-4">LinkedIn</a></li>
-					  </ul>
-					</div>
-				  </nav>
-				  <ul id="slide-out" class="sidenav teal">
-					<li>
-						<div class="user-view">
-						  <div class="background teal lighten-2">
-							<!--<img src="images/office.jpg">-->
-						  </div>
-						  <a href="#"><img class="circle" src="images/asad.jpg"></a>
-						  <p><span class="sidebarName grey-text text-darken-4">Mubashir Hasan</span></p>
-						  <p><span class="subheader grey-text text-lighten-2">Web and Mobile App Developer</span></p>
-						</div>
-					</li>
-					<li><a href="#"><i class="far fa-envelope fa-lg fa-fw"></i>voidtempxy@gmail.com</a></li>
-					<li><div class="divider"></div></li>
-					<li><a class="waves-effect" href="https://github.com/mubu43"><i class="fab fa-github fa-2x fa-fw"></i>Github</a></li>
-					<li><a class="waves-effect" href="https://www.linkedin.com/in/mobashir-hasan-syed-9046ba129/"><i class="fab fa-linkedin fa-2x fa-fw"></i>LinkedIn</a></li>
-				  </ul>
-			</header>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+            <div class="text-center">
+                <div class="mb-6 fade-in">
+                    <span class="inline-block px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium">
+                        Available for opportunities
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in">
+                    Hi, I'm <span class="gradient-text">Mubashir Hasan</span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-400 mb-4 fade-in">
+                    Senior Software Engineer | Telecom
+                </p>
+                
+                <p class="text-lg text-slate-500 dark:text-slate-500 max-w-2xl mx-auto mb-8 fade-in">
+                    Specializing in C/C++ development, 5G RAN, DPDK, and telecom protocols. 
+                    Building high-performance systems that power next-generation networks.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
+                    <a href="#contact" class="px-8 py-3 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors flex items-center gap-2">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        Get in Touch
+                    </a>
+                    <a href="#experience" class="px-8 py-3 rounded-lg border border-slate-300 dark:border-slate-600 hover:border-primary-500 dark:hover:border-primary-500 font-medium transition-colors flex items-center gap-2">
+                        <i data-lucide="briefcase" class="w-5 h-5"></i>
+                        View Experience
+                    </a>
+                </div>
+                
+                <div class="flex justify-center gap-6 mt-12 fade-in">
+                    <a href="https://github.com/mubu43" target="_blank" class="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mobashir-hasan-syed-9046ba129/" target="_blank" class="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="mailto:mubashirhasanwork@gmail.com" class="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i data-lucide="chevron-down" class="w-6 h-6 text-slate-400"></i>
+        </div>
+    </section>
 
-			<main>
-				<section class="teal accent-2">
-					<div id="intro" class="container">
-						<p id="aboutme" class="heading">About Myself</p>
-						<p class="desc">I am a Software Developer who loves working with different technologies. My work experience has mainly been as a backend Web Developer working with technologies like Node.js, PHP, Python etc. However, I keep exploring and learning new stuff. Being a coding polyglot is challenging yet fun.</p>
-					</div>
-				</section>
-				
-				<section>
-					<div class="parallax-container">
-					  <div class="parallax"><img src="images/cst.jpg"></div>
-					</div>
-				</section>
-				
-				<section class="teal accent-1">
-					<div class="container" id="skills">
-						<p class="heading">Technologies I've worked with and <span style="color: pink"><i class="fas fa-heart fa-2x fa-fw"></i></span> working on <span class="teal-text text-darken-4">(Except for PHP)</span>:</p>
-						<div id="tech" class="container">
-							<div class="row">
-								<div class="col s11 offset-s1 l8 offset-l3">
-									<span class="tooltipped" data-position="bottom" data-tooltip="HTML5"><img class="responsive-img skillIcon" src="images/html.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="CSS3"><img class="responsive-img skillIcon" src="images/css.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="JavaScript"><img class="responsive-img skillIcon" src="images/js.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="Node"><img class="responsive-img skillIcon" src="images/nodejs.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="React"><img class="responsive-img skillIcon" src="images/react.svg"></span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col s11 offset-s1 l8 offset-l3">
-									<span class="tooltipped" data-position="bottom" data-tooltip="Bootstrap"><img class="responsive-img skillIcon" src="images/bootstrap.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="JQuery"><img class="responsive-img skillIcon" src="images/jquery.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="Python"><img class="responsive-img skillIcon" src="images/python.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="Django"><img class="responsive-img skillIcon" src="images/django.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="Git"><img class="responsive-img skillIcon" src="images/git.svg"></span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col s11 offset-s1 l8 offset-l3">
-									<span class="tooltipped" data-position="bottom" data-tooltip="Java"><img class="responsive-img skillIcon" src="images/java.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="Android"><img class="responsive-img skillIcon" src="images/android.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="C"><img class="responsive-img skillIcon" src="images/c.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="C++"><img class="responsive-img skillIcon" src="images/cpp.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="C#(ASP.NET)"><img class="responsive-img skillIcon" src="images/csharp.svg"></span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col s11 offset-s1 l8 offset-l3">
-									<span class="tooltipped" data-position="bottom" data-tooltip="Mongo DB"><img class="responsive-img skillIcon" src="images/mongodb.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="MS-SQL Server"><img class="responsive-img skillIcon" src="images/mssql.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="MySQL"><img class="responsive-img skillIcon" src="images/mysql.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="Postgres"><img class="responsive-img skillIcon" src="images/postgres.svg"></span>
-									<span class="tooltipped" data-position="bottom" data-tooltip="AWS"><img class="responsive-img skillIcon" src="images/aws.svg"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<section>
-					<div class="parallax-container">
-					  <div class="parallax"><img src="images/citySkyline.jpg"></div>
-					</div>
-				</section>
-				
-				<section class="teal accent-4">
-					<div class="container">
-					<p class="heading">Work Experience:<span id="indication">(swipe to view others)</span></p>
-					<div class="row">
-					  <div class="carousel carousel-slider center">
-						<div class="carousel-item teal accent-2 grey-text text-darken-3">
-							<div class="col s12 l6 offset-l3">
-								<img class="responsive-img companyLogoImage" src="./images/tantrasoft.png" />
-								<p class="companyTitle grey-text text-darken-4">TantraSoft Solutions</p>
-								<p class="jobProfile grey-text text-darken-4">Node.js Developer</p>
-								<p class="duration grey-text text-darken-4">Jan, 2020 - Present</p>
-								<p class="jobDescription grey-text text-darken-4">Working on a server application that communicates with pharmaceutical measurement equipment and Android devices via the MQTT protocol. Technologies used were: <span class="blue-text text-darken-1">Node.js, MySQL, Express, Web Socket and MQTT</span>
-							</div>
-						</div>
-						<div class="carousel-item teal accent-3 grey-text text-darken-3">	
-							<div class="col s12 l5 offset-l3">
-								<img class="responsive-img companyLogoImage" src="./images/revolo.png" />
-								<p class="companyTitle grey-text text-darken-4">Revolo Infotech</p>
-								<p class="jobProfile grey-text text-darken-4">Web Developer</p>
-								<p class="duration grey-text text-darken-4">March, 2019 - October, 2019</p>
-								<p class="jobDescription grey-text text-darken-4">Worked on ERP software systems concerning the logistics and transport sector. Also built an e-commerce website. Technologies used were: <span class="amber-text text-darken-3">PHP, MySQL, JavaScript, JQuery, Bootstrap and AWS</span></p>
-							</div>
-						</div>
-					</div>
-					</div>
-					</div>
-				</section>
-				
-				<section>
-					<div class="parallax-container">
-					  <div class="parallax"><img src="images/queensNecklace.jpg"></div>
-					</div>
-				</section>
-			</main>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto mb-12 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary-500 to-purple-500 rounded-2xl transform rotate-3"></div>
+                        <div class="relative bg-slate-100 dark:bg-slate-700 rounded-2xl p-8">
+                            <div class="text-6xl mb-4">👨‍💻</div>
+                            <h3 class="text-xl font-semibold mb-2">5+ Years in Software Engineering</h3>
+                            <p class="text-slate-600 dark:text-slate-400">
+                                From web development to telecom infrastructure, I've evolved my skills to work on cutting-edge 5G technology.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6 fade-in">
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I'm a <strong class="text-slate-800 dark:text-slate-200">Senior Software Engineer</strong> based in Bangalore/Mumbai, India, 
+                        currently working at <strong class="text-slate-800 dark:text-slate-200">Radisys</strong> on their Media Resource Function (MRF) project.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        My expertise lies in <strong class="text-slate-800 dark:text-slate-200">C/C++ development</strong> for telecom systems, 
+                        with deep experience in <strong class="text-slate-800 dark:text-slate-200">5G/NR protocols</strong>, 
+                        <strong class="text-slate-800 dark:text-slate-200">Intel DPDK</strong> for high-performance packet processing, 
+                        and <strong class="text-slate-800 dark:text-slate-200">3GPP specifications</strong>.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        I have a strong foundation in the Linux ecosystem, and I enjoy tackling complex problems in distributed systems and network protocols.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-3 pt-4">
+                        <span class="px-4 py-2 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium">📍 Bangalore/Mumbai, India</span>
+                        <span class="px-4 py-2 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium">🎓 B.E. Information Technology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-			<footer class="page-footer teal lighten-1">
-			  <div class="container">
-				<div class="row">
-				  <div class="col l6 s12">
-					<h5 class="grey-text text-lighten-4">Projects</h5>
-					<p class="grey-text text-lighten-4">You can find all my personal projects on my <a href="https://github.com/mubu43" class="grey-text text-darken-3"><i class="fab fa-github"></i>Github</a>. The projects I've built at work are confidential and as such I cannot share information about them. To learn more about my experience, you can check my <a href="https://www.linkedin.com/in/mobashir-hasan-syed-9046ba129/" class="grey-text text-darken-3"><i class="fab fa-linkedin"></i>LinkedIn</a></p>
-				  </div>
-				  <div class="col l4 offset-l2 s12">
-					<h5 class="white-text">website made with</h5>
-					<ul>
-					  <li><a class="grey-text text-lighten-3" href="http://www.materializecss.com" target="_blank">Materialize</a></li>
-					  <li><a class="grey-text text-lighten-3" href="https://fonts.google.com/" target="_blank">Google Fonts</a></li>
-					  <li><a class="grey-text text-lighten-3" href="http://www.fontawesome.com" target="_blank">Font Awesome</a></li>
-					  <li><a class="grey-text text-lighten-3" href="http://www.icons8.com" target="_blank">Icons8</a></li>
-					</ul>
-				  </div>
-				</div>
-			  </div>
-			  <div class="footer-copyright teal darken-2">
-				<div class="container center">
-					voidtempxy@gmail.com
-				</div>
-			  </div>
-			</footer>
-		</div>
-		
-		<!-- Loader -->
-		<div class="preloader-wrapper big active" id="loaderId">
-		  <div class="spinner-layer spinner-blue">
-			<div class="circle-clipper left">
-			  <div class="circle"></div>
-			</div><div class="gap-patch">
-			  <div class="circle"></div>
-			</div><div class="circle-clipper right">
-			  <div class="circle"></div>
-			</div>
-		  </div>
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Work Experience</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto mb-12 rounded-full"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Radisys -->
+                <div class="fade-in timeline-item relative pl-8">
+                    <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-gradient-to-r from-primary-500 to-purple-500"></div>
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">Senior Engineer</h3>
+                                <p class="text-primary-600 dark:text-primary-400 font-medium">Radisys, Bengaluru</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-2 sm:mt-0 font-mono">Nov 2022 - Present</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Implemented MRF features: G722 audio codec for MRCP negotiation, MP3 audio recording support, DTMF pass-through of FAX tones</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Built traffic generation tool using DPDK for data path testing of CU component</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Worked on 3GPP E1AP interface with single CUCP supporting 2 CUUPs and 3 DUs</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Implemented SON ANR feature and 3GPP PWS - ETWS feature for CU</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>CI/CD with Jenkins: pipeline creation, unit tests maintenance, regression control</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">C/C++</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">DPDK</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">5G/NR</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">E1AP</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Jenkins</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tidalwave Senior -->
+                <div class="fade-in timeline-item relative pl-8">
+                    <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-gradient-to-r from-primary-500 to-purple-500"></div>
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">Senior Software Engineer</h3>
+                                <p class="text-primary-600 dark:text-primary-400 font-medium">Tidalwave Technologies, Navi Mumbai</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-2 sm:mt-0 font-mono">Jul 2021 - Nov 2022</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Developed RAN gNB CU (Centralized Unit) as per 3GPP Option-2 Functional Split</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Led planning and coordinating work with junior members across F1AP, PDCP, RRC, S1AP, NGAP, SCTP, GTP layers</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Wrote product documentation and developed training materials for team members</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Administered Git server and managed Azure cloud VMs, storage accounts, and resource groups</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">C/C++</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">3GPP</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Azure</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Git Admin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tidalwave -->
+                <div class="fade-in timeline-item relative pl-8">
+                    <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-gradient-to-r from-primary-500 to-purple-500"></div>
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">Software Engineer</h3>
+                                <p class="text-primary-600 dark:text-primary-400 font-medium">Tidalwave Technologies, Navi Mumbai</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-2 sm:mt-0 font-mono">Jun 2020 - Jul 2021</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-400">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Developed RRC and S1AP APIs as per 3GPP specification for LTE eNB</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Debugged multithreading API and configuration module integration issues</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="chevron-right" class="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5"></i>
+                                <span>Developed USB authentication tool using libusb and SHA-512</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">C</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">CMake</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">GDB</span>
+                            <span class="px-3 py-1 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Valgrind</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Earlier roles collapsed -->
+                <div class="fade-in">
+                    <details class="group">
+                        <summary class="cursor-pointer list-none pl-8 relative">
+                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 group-open:bg-gradient-to-r group-open:from-primary-500 group-open:to-purple-500 transition-colors"></div>
+                            <div class="bg-slate-100 dark:bg-slate-800 rounded-2xl p-4 flex items-center justify-between hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                                <span class="font-medium text-slate-600 dark:text-slate-400">Earlier Experience (2019 - 2020)</span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                            </div>
+                        </summary>
+                        <div class="mt-4 space-y-4 pl-8">
+                            <!-- Seashore -->
+                            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 dark:text-slate-200">Software Engineer Trainee (Remote)</h4>
+                                        <p class="text-primary-600 dark:text-primary-400 text-sm">Seashore Networks, Singapore</p>
+                                    </div>
+                                    <span class="text-sm text-slate-500 font-mono">Apr - Jun 2020</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Developed unit tests for S1AP layer testing with cloud-based Core Network Simulator.</p>
+                            </div>
+                            
+                            <!-- Tantrasoft -->
+                            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 dark:text-slate-200">Node.js Developer</h4>
+                                        <p class="text-primary-600 dark:text-primary-400 text-sm">Tantrasoft Solutions, Mumbai</p>
+                                    </div>
+                                    <span class="text-sm text-slate-500 font-mono">Jan - Apr 2020</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Built server API for electronic measurement devices using MQTT protocol.</p>
+                            </div>
+                            
+                            <!-- Revolo -->
+                            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 dark:text-slate-200">Web Developer</h4>
+                                        <p class="text-primary-600 dark:text-primary-400 text-sm">Revolo Infotech, Mumbai</p>
+                                    </div>
+                                    <span class="text-sm text-slate-500 font-mono">Mar - Oct 2019</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm">Developed transport and logistics ERP web solution using PHP, MySQL, Bootstrap, and AWS.</p>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		  <div class="spinner-layer spinner-teal">
-			<div class="circle-clipper left">
-			  <div class="circle"></div>
-			</div><div class="gap-patch">
-			  <div class="circle"></div>
-			</div><div class="circle-clipper right">
-			  <div class="circle"></div>
-			</div>
-		  </div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white dark:bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Skills & Technologies</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto mb-12 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Core Development -->
+                <div class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-primary-100 dark:bg-primary-900/30">
+                            <i data-lucide="code-2" class="w-6 h-6 text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Core Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">C</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">C++</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Python</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Shell Scripting</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">CMake</span>
+                    </div>
+                </div>
+                
+                <!-- Telecom & Protocols -->
+                <div class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-purple-100 dark:bg-purple-900/30">
+                            <i data-lucide="radio-tower" class="w-6 h-6 text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Telecom & Protocols</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">5G/NR</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">3GPP</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">O-RAN</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">E1AP</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">F1AP</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">SCTP</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">NGAP</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">RRC</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">GTP</span>
+                    </div>
+                </div>
+                
+                <!-- High Performance -->
+                <div class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-orange-100 dark:bg-orange-900/30">
+                            <i data-lucide="zap" class="w-6 h-6 text-orange-600 dark:text-orange-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">High Performance</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Intel DPDK</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Packet Processing</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">CPU Optimization</span>
+                    </div>
+                </div>
+                
+                <!-- Development Tools -->
+                <div class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-green-100 dark:bg-green-900/30">
+                            <i data-lucide="wrench" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Development Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">GDB</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Valgrind</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Git</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Wireshark</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">CTest</span>
+                    </div>
+                </div>
+                
+                <!-- DevOps & Cloud -->
+                <div class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30">
+                            <i data-lucide="cloud" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">DevOps & Cloud</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Jenkins</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Docker</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Azure</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">CI/CD</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium">Linux Admin</span>
+                    </div>
+                </div>
+                
+                <!-- Past Experience -->
+                <div class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-3 rounded-xl bg-slate-200 dark:bg-slate-600">
+                            <i data-lucide="history" class="w-6 h-6 text-slate-600 dark:text-slate-300"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Previous Stack</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium text-slate-500">Node.js</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium text-slate-500">JavaScript</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium text-slate-500">PHP</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium text-slate-500">MySQL</span>
+                        <span class="skill-badge px-4 py-2 rounded-lg bg-white dark:bg-slate-700 shadow-sm text-sm font-medium text-slate-500">AWS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		  <div class="spinner-layer spinner-teal">
-			<div class="circle-clipper left">
-			  <div class="circle"></div>
-			</div><div class="gap-patch">
-			  <div class="circle"></div>
-			</div><div class="circle-clipper right">
-			  <div class="circle"></div>
-			</div>
-		  </div>
+    <!-- Education Section -->
+    <section id="education" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Education</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto mb-12 rounded-full"></div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto fade-in">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-slate-700 card-hover">
+                    <div class="flex items-start gap-4">
+                        <div class="p-4 rounded-xl bg-gradient-to-br from-primary-500 to-purple-500 text-white">
+                            <i data-lucide="graduation-cap" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-200">B.E. in Information Technology</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">University of Mumbai</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm font-mono mt-1">2014 - 2018</p>
+                            <p class="text-slate-600 dark:text-slate-400 mt-4">
+                                Studied Data Structures and Algorithms, Operating Systems, Computer Networks, Communications and other core computer science subjects.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		  <div class="spinner-layer spinner-teal">
-			<div class="circle-clipper left">
-			  <div class="circle"></div>
-			</div><div class="gap-patch">
-			  <div class="circle"></div>
-			</div><div class="circle-clipper right">
-			  <div class="circle"></div>
-			</div>
-		  </div>
-		</div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-purple-500 mx-auto mb-6 rounded-full"></div>
+                <p class="text-center text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-12">
+                    I'm always open to discussing new opportunities, interesting projects, or just having a chat about telecom and software engineering.
+                </p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <a href="mailto:mubashirhasanwork@gmail.com" class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-slate-200 dark:border-slate-600 card-hover text-center group">
+                    <div class="inline-flex p-4 rounded-xl bg-primary-100 dark:bg-primary-900/30 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-8 h-8 text-primary-600 dark:text-primary-400"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Email</h3>
+                    <p class="text-primary-600 dark:text-primary-400 text-sm break-all">mubashirhasanwork@gmail.com</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/mobashir-hasan-syed-9046ba129/" target="_blank" class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-slate-200 dark:border-slate-600 card-hover text-center group">
+                    <div class="inline-flex p-4 rounded-xl bg-blue-100 dark:bg-blue-900/30 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="linkedin" class="w-8 h-8 text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">LinkedIn</h3>
+                    <p class="text-blue-600 dark:text-blue-400 text-sm">Connect with me</p>
+                </a>
+                
+                <a href="https://github.com/mubu43" target="_blank" class="fade-in bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-slate-200 dark:border-slate-600 card-hover text-center group sm:col-span-2 lg:col-span-1">
+                    <div class="inline-flex p-4 rounded-xl bg-slate-200 dark:bg-slate-600 mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="github" class="w-8 h-8 text-slate-700 dark:text-slate-300"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">GitHub</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">@mubu43</p>
+                </a>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <p class="text-slate-500 dark:text-slate-400 flex items-center justify-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                    Bangalore / Mumbai, India
+                </p>
+            </div>
+        </div>
+    </section>
 
-		<!--JavaScript at end of body for optimized loading-->
-		<script type="text/javascript" src="js/materialize.min.js"></script>
-		<script>
-		
-			document.addEventListener('DOMContentLoaded', function(){
-				document.querySelector('#loaderId').style.display = 'none';
-				document.querySelector('#main-content').style.display = 'block';
-				var sideNav = document.querySelector('.sidenav');
-				var parallax = document.querySelectorAll('.parallax');
-				var tooltipped = document.querySelectorAll('.tooltipped');
-				var carousel = document.querySelector('.carousel.carousel-slider');
-				//initialize sideNav
-				M.Sidenav.init(sideNav, {
-					draggable: true,
-					preventScrolling: true
-				});
-				M.Parallax.init(parallax);
-				M.Tooltip.init(tooltipped);
-				M.Carousel.init(carousel, {
-					fullWidth: true,
-					noWrap: true,
-					indicators: true,
-					duration: 200
-				});
-			});
-			
-			
-		</script>
-	</body>
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 dark:text-slate-400 text-sm">
+                    © 2026 Mubashir Hasan. All rights reserved.
+                </p>
+                <p class="text-slate-400 dark:text-slate-500 text-sm flex items-center gap-1">
+                    Built with <i data-lucide="heart" class="w-4 h-4 text-red-500 inline"></i> using Tailwind CSS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary-600', 'dark:text-primary-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-primary-600', 'dark:text-primary-400');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
